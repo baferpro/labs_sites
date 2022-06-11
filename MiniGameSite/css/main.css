@@ -1,0 +1,75 @@
+body {
+	background-image: url("../img/main-map.png");
+	background-position: center center;
+	background-attachment:local;
+	background-color: #b9830f;
+	background-size: cover;
+	font-family: 'Barlow', sans-serif;
+}
+.chel{
+    width: 400px;
+    position: absolute;
+    height: auto;
+    margin-top: 25%;
+    -webkit-animation: runSircle1 1s forwards linear;
+    -moz-animation: runSircle1 1s forwards linear;
+    -ms-animation: runSircle1 1s forwards linear;
+    animation: runSircle1 1s forwards linear;
+}
+@keyframes runSircle1 {
+    0% {left: 0; top: 0;}
+    100% {left: 350px; top: -175px;}
+}
+@keyframes runSircle2 {
+    0% {left: 350px; top: -175px;}
+    100% {left: 1200px; top: -70px;}
+}
+@keyframes runSircle3 {
+    0% {left: 1200px; top: -70px;}
+    40% {left: 1500px; top: -150px;}
+    100% {left: 1250px; top: -650px;}
+}
+@keyframes runSircle4 {
+    0% {left: 1250px; top: -650px;}
+    100% {left: 150px; top: -450px;}
+}
+
+.sp-circle-link {
+	position: absolute;
+	left: 50%;
+	bottom: 100px;
+	margin-left: -50px;
+	text-align: center;
+	line-height: 100px;
+	width: 100px;
+	height: 100px;
+	background: #85b7bc;
+	color: #73584b;
+	font-size: 25px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	-webkit-animation: fadeInRotate 1s linear 16s backwards;
+	-moz-animation: fadeInRotate 1s linear 16s backwards;
+	-ms-animation: fadeInRotate 1s linear 16s backwards;
+	animation: fadeInRotate 1s linear 16s backwards;
+	-webkit-transform: scale(1) rotate(0deg);
+	-moz-transform: scale(1) rotate(0deg);
+	-o-transform: scale(1) rotate(0deg);
+	-ms-transform: scale(1) rotate(0deg);
+	transform: scale(1) rotate(0deg);
+}
+.sp-circle-link:hover {
+	background: #efeae6;
+	color: #85b7bc;
+}
+@keyframes fadeInRotate {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(0) rotate(360deg);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: scale(1) rotate(0deg);
+	}
+}

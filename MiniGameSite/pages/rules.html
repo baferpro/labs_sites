@@ -1,0 +1,70 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <link href="../css/style.css" rel="stylesheet">
+        <link href="../css/animatedText.css" rel="stylesheet">
+        <link href="../css/bootstrap.css" rel="stylesheet">
+    </head>
+    <body>  
+        <ul class="menu-main">
+            <li><a href="#">Главная</a></li>
+            <li><a href="./pages/main.html">Игра</a></li>
+            <li><a href="./pages/rules.html" class="current">Правила</a></li>
+        </ul>
+
+        <div id="myModal" class="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Правила</h5>
+                  <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
+                <div class="modal-body">
+                  <p><ol><li>Основная задача игры: пройти до конца по карте сокровищ.</li>
+                    <li>Чтобы пройти до конца вам нужно ответить на все загадки правильно.</li>
+                    <li>Если вы отвечаете не правильно, то ничего страшного, у вас бесконечное количество попыток.</li>
+		    <li>Таблица для подсчета очков:
+		    	<table>
+				<tr>
+					<th>Количество попыток</th>
+					<th>Количество очков</th>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>100</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>70</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>50</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>30</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>30 - (кол-во попыток - 7)</td>
+				</tr>
+			</table></li>
+			</ol>
+		   </p>
+                </div>
+                <div class="modal-footer">
+                  <button onclick="window.location.href='../index.html'" type="button" class="btn btn-primary">Закрыть</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script>
+            window.onload  = (event) => {
+                $('#myModal').modal('show');
+            };
+        </script>
+    </body>
+</html>

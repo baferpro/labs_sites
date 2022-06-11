@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link href="../css/style.css" rel="stylesheet">
+        <link href="../css/main.css" rel="stylesheet">
+        <link href="../css/bootstrap.css" rel="stylesheet">
+    </head>
+    <body>
+        <img class="chel" src="../img/chel.png">
+        <div id="myModal" class="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Первая загадка</h5>
+                  <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
+                <div class="modal-body">
+                  <p>Плаваю на корабле,<br>
+                    Иногда лежу на дне,<br>
+                    На цепи корабль держу,<br>
+                    судно в море сторожу,<br>
+                    Чтобы ветер не угнал,<br>
+                    На волнах лишь покачал.</p>
+                </div>
+                <div class="modal-footer">
+                  <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+                  <textarea id="questAnswer1" class="form-control" rows="1"></textarea>
+                  <button id="quest1Btn" onclick="quest()" type="submit" class="btn btn-primary">Дать ответ</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div id="myModal2" class="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Вторая загадка</h5>
+                </div>
+                <div class="modal-body">
+                <p>Поднимается волна<br>
+                    И закроет берег вскоре.<br>
+                    Это спутник наш Луна<br>
+                    Так притягивает море.</p>
+                </div>
+                <div class="modal-footer">
+                <textarea id="questAnswer2" class="form-control" rows="1"></textarea>
+                <button id="quest2Btn" onclick="quest()" type="button" class="btn btn-primary">Дать ответ</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div id="myModal3" class="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Третья загадка</h5>
+                </div>
+                <div class="modal-body">
+                <p>Для неё волна – качели,<br>
+                    И плывёт она без цели,<br>
+                    Ниоткуда в никуда,<br>
+                    Вся прозрачна как вода.</p>
+                </div>
+                <div class="modal-footer">
+                <textarea id="questAnswer3" class="form-control" rows="1"></textarea>
+                <button id="quest3Btn" onclick="quest()" type="button" class="btn btn-primary">Дать ответ</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div id="myModal4" class="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Поздравляем!</h5>
+                </div>
+                <div class="modal-body">
+                <p>Поздравляем с успешным прохождения квеста!</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="../index.html"class="btn btn-secondary">Закрыть</a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div id="modalWrong" class="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>Ответ неверный, попробуйте ещё раз.
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="okWrong()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script type="text/javascript">
+            var chel = document.querySelector(".chel");
+            var check = false;
+            var status = 1
+            chel.addEventListener('animationend', handle, false)
+            function quest(){
+                switch(status){
+                    case '1':
+                        var form = document.querySelector("#questAnswer1");
+                        if(form.value == "Якорь" || form.value == "якорь")
+                        {
+                            $('#myModal').modal('hide');
+                            check = true;
+                            handle();
+                        }
+                        else
+                        {
+                            $('#myModal').modal('hide');
+                            $('#modalWrong').modal('show');
+                        }
+                        break;
+                    case '2':
+                        var form = document.querySelector("#questAnswer2");
+                        if(form.value == "Прилив" || form.value == "прилив")
+                        {
+                            $('#myModal2').modal('hide');
+                            check = true;
+                            handle();
+                        }
+                        else
+                        {
+                            $('#myModal2').modal('hide');
+                            $('#modalWrong').modal('show');
+                        }
+                        break;
+                    case '3':
+                        var form = document.querySelector("#questAnswer3");
+                        if(form.value == "Медуза" || form.value == "медуза")
+                        {
+                            $('#myModal3').modal('hide');
+                            check = true;
+                            handle();
+                        }
+                        else
+                        {
+                            $('#myModal3').modal('hide');
+                            $('#modalWrong').modal('show');
+                        }
+                        break;
+                }
+            }
+            function okWrong(){
+                switch(status){
+                    case '1':
+                        $('#modalWrong').modal('hide');
+                        $('#myModal').modal('show');
+                        break;
+                    case '2':
+                        $('#modalWrong').modal('hide');
+                        $('#myModal2').modal('show');
+                        break;
+                    case '3':
+                        $('#modalWrong').modal('hide');
+                        $('#myModal3').modal('show');
+                        break;
+                }
+            }
+            function handle(){
+                if(check == true)
+                {
+                    if(chel.style.getPropertyValue('animation').includes("runSircle2"))
+                    {
+                        toggle1();
+                        check = false;
+                        status = 3;
+                    }
+                    else if(chel.style.getPropertyValue('animation').includes("runSircle3"))
+                    {
+                        toggle2();
+                        check = false;
+                        status = 4;
+                    }
+                    else
+                    {
+                        toggle();
+                        check = false;
+                        status = 2;
+                    }
+                }
+                else
+                {
+                    switch(status)
+                    {
+                        case '1':
+                            $('#myModal').modal('show');
+                            break;
+                        case '2':
+                            $('#myModal2').modal('show');
+                            break;
+                        case '3':
+                            $('#myModal3').modal('show');
+                            break;
+                        case '4':
+                            $('#myModal4').modal('show');
+                            break;
+                    }
+                }
+            }
+            function toggle() {
+                chel.style.removeProperty('animation');
+                chel.style["animation"]="runSircle2 1s forwards linear";
+            };
+            function toggle1() {
+                chel.style.removeProperty('animation');
+                chel.style["animation"]="runSircle3 1s forwards linear";
+            };
+            function toggle2() {
+                chel.style.removeProperty('animation');
+                chel.style["animation"]="runSircle4 1s forwards linear";
+            };
+            // Enter in textarea click button
+            var input = document.getElementById("questAnswer1");
+            input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("quest1Btn").click();
+            }
+            });
+            var input = document.getElementById("questAnswer2");
+            input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("quest2Btn").click();
+            }
+            });
+            var input = document.getElementById("questAnswer3");
+            input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("quest3Btn").click();
+            }
+            });
+        </script>
+    </body>
+</html>
